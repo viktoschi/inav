@@ -29,24 +29,24 @@
 #define BEEPER_INVERTED
 
 // *************** SPI1 Gyro & ACC *******************
-
 #define USE_SPI
 #define USE_SPI_DEVICE_1
+
 #define SPI1_SCK_PIN            PA5
 #define SPI1_MISO_PIN           PA6
 #define SPI1_MOSI_PIN           PA7
 
 #define USE_TARGET_IMU_HARDWARE_DESCRIPTORS
-#define USE_IMU_MPU6000
-#define IMU_1_SPI_BUS           BUS_SPI1
-#define IMU_1_CS_PIN            PB2
-#define IMU_1_EXTI_PIN          PC4
-#define IMU_1_ALIGN             CW0_DEG_FLIP
+#define USE_IMU_ICM42605
+#define IMU_ICM42605_ALIGN      CW0_DEG_FLIP
+#define ICM42605_SPI_BUS        BUS_SPI1
+#define ICM42605_CS_PIN         PB2
+#define ICM42605_EXTI_PIN       PC4
 
 #define USE_EXTI
 #define USE_MPU_DATA_READY_SIGNAL
 
-// *************** I2C /Baro/Mag *********************
+//  *************** I2C /Baro/Mag *********************
 #define USE_I2C
 #define USE_I2C_DEVICE_1
 #define I2C1_SCL                PB8
@@ -83,19 +83,11 @@
 #define SPI3_MISO_PIN           PC11
 #define SPI3_MOSI_PIN           PC12
 
-#if defined(MATEKF722MINI)
-#   define USE_FLASHFS
-#   define USE_FLASH_M25P16
-#   define M25P16_SPI_BUS          BUS_SPI3
-#   define M25P16_CS_PIN           PD2
-#   define ENABLE_BLACKBOX_LOGGING_ON_SPIFLASH_BY_DEFAULT
-#else
-#   define USE_SDCARD
-#   define USE_SDCARD_SPI
-#   define SDCARD_SPI_BUS          BUS_SPI3
-#   define SDCARD_CS_PIN           PD2
-#   define ENABLE_BLACKBOX_LOGGING_ON_SDCARD_BY_DEFAULT
-#endif
+#define USE_FLASHFS
+#define USE_FLASH_M25P16
+#define M25P16_SPI_BUS          BUS_SPI3
+#define M25P16_CS_PIN           PD2
+#define ENABLE_BLACKBOX_LOGGING_ON_SPIFLASH_BY_DEFAULT
 
 // *************** UART *****************************
 #define USE_VCP
@@ -121,12 +113,8 @@
 #define USE_UART6
 #define UART6_TX_PIN            PC6
 #define UART6_RX_PIN            PC7
-     
-#define USE_SOFTSERIAL1
-#define SOFTSERIAL_1_TX_PIN      PA2
-#define SOFTSERIAL_1_RX_PIN      PA2
 
-#define SERIAL_PORT_COUNT       7
+#define SERIAL_PORT_COUNT       6
 
 #define DEFAULT_RX_TYPE         RX_TYPE_SERIAL
 #define SERIALRX_PROVIDER       SERIALRX_SBUS
@@ -145,7 +133,7 @@
 #define VBAT_ADC_CHANNEL            ADC_CHN_1
 #define CURRENT_METER_ADC_CHANNEL   ADC_CHN_2
 #define RSSI_ADC_CHANNEL            ADC_CHN_3
-#define AIRSPEED_ADC_CHANNEL           ADC_CHN_4
+#define AIRSPEED_ADC_CHANNEL        ADC_CHN_4
 
 // *************** PINIO ***************************
 #define USE_PINIO
@@ -170,6 +158,3 @@
 #define MAX_PWM_OUTPUT_PORTS        8
 #define USE_DSHOT
 #define USE_ESC_SENSOR
-
-#define BNO055_I2C_BUS          BUS_I2C1
-
