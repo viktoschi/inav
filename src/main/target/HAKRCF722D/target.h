@@ -19,7 +19,7 @@
 #pragma once
 
 
-#define TARGET_BOARD_IDENTIFIER "HRCF722D"
+#define TARGET_BOARD_IDENTIFIER "HAKRCF722D"
 #define USBD_PRODUCT_STRING  "HAKRCF722D"
 
 #define LED0                    PA14  //Blue   SWCLK
